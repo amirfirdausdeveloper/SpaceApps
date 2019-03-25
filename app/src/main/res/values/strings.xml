@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Space Apps</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="done">DONE</string>
+    <string name="facebook_app_id">262323218008435</string>
+    <string name="fb_login_protocol_scheme">fb262323218008435</string>
+
 </resources>

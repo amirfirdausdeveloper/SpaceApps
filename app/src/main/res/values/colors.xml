@@ -3,4 +3,32 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGray">#535353</color>
+    <color name="colorGraySikit">#e1e1e1</color>
+    <color name="colorSpace">#F9B33F</color>
+    <color name="colorSpaceDua">#F9C437</color>
+    <color name="colorGoogle">#DD4B39</color>
+    <color name="colorFacebook">#4E71A8</color>
+
+
+
+    <array name="array_active">
+        <item>@color/colorSpace</item>
+        <item>@color/colorSpace</item>
+        <item>@color/colorSpace</item>
+        <item>@color/colorSpace</item>
+    </array>
+
+    <color name="dot_inactive_06">#e0e0e0</color>
+    <color name="dot_inactive_07">#e0e0e0</color>
+    <color name="dot_inactive_08">#e0e0e0</color>
+    <color name="dot_inactive_09">#e0e0e0</color>
+    <color name="scanner_line">#000000</color>
+    <array name="array_inactive">
+        <item>@color/dot_inactive_06</item>
+        <item>@color/dot_inactive_07</item>
+        <item>@color/dot_inactive_08</item>
+        <item>@color/dot_inactive_09</item>
+    </array>
 </resources>
