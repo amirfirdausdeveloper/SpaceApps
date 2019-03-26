@@ -85,7 +85,7 @@ public class RegistrationSecondActivity extends AppCompatActivity {
 
     public void register(){
         standardProgressDialog.show();
-        StringRequest stringRequest = new StringRequest(POST, "http://35.238.24.65/api/public/index.php/api/v1.0/auth/register",
+        StringRequest stringRequest = new StringRequest(POST, "http://104.154.35.121/api/public/index.php/api/v1.0/auth/register",
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
