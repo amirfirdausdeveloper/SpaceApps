@@ -17,6 +17,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.login.Login;
 import com.space.spaceapps.Common.StandardProgressDialog;
 import com.space.spaceapps.R;
 
@@ -94,6 +95,8 @@ public class RegistrationSecondActivity extends AppCompatActivity {
                             JSONObject object = new JSONObject(response);
                             if(object.getString("status").equals("true")){
                                 Toast.makeText(getApplicationContext(),object.getString("message"),Toast.LENGTH_SHORT).show();
+                                Intent next = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(next);
                             }else{
                                 Toast.makeText(getApplicationContext(),object.getString("errors"),Toast.LENGTH_SHORT).show();
                             }
