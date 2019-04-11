@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.facebook.login.Login;
+import com.space.spaceapps.Activity.IntroSetting.IntroSettingActivity;
 import com.space.spaceapps.Common.StandardProgressDialog;
 import com.space.spaceapps.R;
 
@@ -90,14 +91,13 @@ public class RegistrationSecondActivity extends AppCompatActivity {
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        standardProgressDialog.dismiss();
                         try {
                             JSONObject object = new JSONObject(response);
                             if(object.getString("status").equals("true")){
-                                Toast.makeText(getApplicationContext(),object.getString("message"),Toast.LENGTH_SHORT).show();
-                                Intent next = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(next);
+                                autoLogin();
                             }else{
+
+                                standardProgressDialog.dismiss();
                                 Toast.makeText(getApplicationContext(),object.getString("errors"),Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
@@ -127,6 +127,53 @@ public class RegistrationSecondActivity extends AppCompatActivity {
         int socketTimeout = 30000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+
+    public void autoLogin(){
+        StringRequest stringRequest = new StringRequest(POST, "http://104.154.35.121/api/public/index.php/api/v1.0/auth/login",
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        standardProgressDialog.dismiss();
+                        try {
+                            JSONObject object = new JSONObject(response);
+                            if(object.getString("status").equals("true")){
+                                if(object.has("data")){
+                                    JSONObject token = new JSONObject(object.getString("data"));
+
+                                    Toast.makeText(getApplicationContext(),"Registration successful",Toast.LENGTH_SHORT).show();
+                                    Intent next = new Intent(getApplicationContext(), IntroSettingActivity.class);
+                                    next.putExtra("token",token.getString("token"));
+                                    startActivity(next);
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("error",error.toString());
+                        standardProgressDialog.dismiss();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("username", et_username.getText().toString());
+                params.put("email", et_email.getText().toString());
+                params.put("password", et_password.getText().toString());
+                params.put("account_created_from",account_created_from);
+                params.put("image_url",image_url);
+                Log.d("param",params.toString());
+                return params;
+            }
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }

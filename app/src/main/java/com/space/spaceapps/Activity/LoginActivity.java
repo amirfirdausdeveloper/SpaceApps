@@ -19,6 +19,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.space.spaceapps.Activity.IntroSetting.IntroSettingActivity;
 import com.space.spaceapps.Common.StandardProgressDialog;
 import com.space.spaceapps.R;
 
@@ -68,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                     et_password.setError("Please insert the value");
                     standardProgressDialog.dismiss();
                 }else{
-                    standardProgressDialog.dismiss();
+                    standardProgressDialog.show();
                     login();
                 }
             }
@@ -92,8 +93,14 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject object = new JSONObject(response);
                             if(object.getString("status").equals("true")){
-                                Intent next = new Intent(getApplicationContext(),DashboardActivity.class);
-                                startActivity(next);
+
+                                if(object.has("data")){
+                                    JSONObject token = new JSONObject(object.getString("data"));
+                                    Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT).show();
+                                    Intent next = new Intent(getApplicationContext(), IntroSettingActivity.class);
+                                    next.putExtra("token",token.getString("token"));
+                                    startActivity(next);
+                                }
                             }else{
                                 Toast.makeText(getApplicationContext(),object.getString("message"),Toast.LENGTH_SHORT).show();
                             }

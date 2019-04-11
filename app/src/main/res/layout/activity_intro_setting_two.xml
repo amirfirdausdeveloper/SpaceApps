@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_second"
+    android:orientation="vertical"
+    tools:context=".Activity.IntroSetting.IntroSettingTwoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:background="@drawable/custom_linear_layout"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="WELCOME TO SPACE APP"
+            android:textColor="@color/colorSpaceDua"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="How much do you want to spend every month!" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_money_hand" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price: "
+                android:textColor="@color/colorSpaceDua"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_price_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/textView_price_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+        </LinearLayout>
+
+        <io.apptik.widget.MultiSlider
+            android:id="@+id/range_slider5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20dp"
+            app:drawThumbsApart="true"
+            app:stepsThumbsApart="5"
+
+            app:thumbNumber="2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="BACK"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Next"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
