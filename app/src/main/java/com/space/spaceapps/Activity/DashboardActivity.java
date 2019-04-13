@@ -14,12 +14,11 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        token = getIntent().getStringExtra("token");
+       /* token = getIntent().getStringExtra("token");*/
     }
 
     @Override
     public void onBackPressed() {
-        Intent next = new Intent(getApplicationContext(),LoginActivity.class);
-        startActivity(next);
+
     }
 }

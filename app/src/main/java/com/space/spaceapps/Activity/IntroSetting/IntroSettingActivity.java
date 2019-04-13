@@ -3,6 +3,7 @@ package com.space.spaceapps.Activity.IntroSetting;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class IntroSettingActivity extends AppCompatActivity {
         if (!preferenceManager.isFirstTimeLaunching()) {
             launchHomeScreen();
             finish();
+            Log.d("masuk","masuk");
         }
 
         token = getIntent().getStringExtra("token");
@@ -42,9 +44,9 @@ public class IntroSettingActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         preferenceManager.setIsFirstTimeLaunch(false);
-        Intent next = new Intent(getApplicationContext(), DashboardActivity.class);
-        next.putExtra("token",token);
+        startActivity(new Intent(IntroSettingActivity.this, DashboardActivity.class).putExtra("token",token));
         finish();
+
     }
 
     @Override

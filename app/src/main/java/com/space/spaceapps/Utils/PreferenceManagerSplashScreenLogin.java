@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 
 public class PreferenceManagerSplashScreenLogin {
     private static final String PREF_NAME = "login_screen";
-    private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+    private static final String IS_FIRST_TIME_LAUNCH = "ISSecondTime";
     SharedPreferences pref;
     SharedPreferences.Editor edit;
     Context context;
