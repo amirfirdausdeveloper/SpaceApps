@@ -14,20 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.IntroSetting.IntroSettingFourActivity">
-
-        </activity>
-        <activity android:name=".Activity.IntroSetting.IntroSettingThreeActivity">
-
-        </activity>
-        <activity android:name=".Activity.IntroSetting.IntroSettingTwoActivity"></activity>
+        <activity android:name=".Activity.EditProfileActivity"></activity>
+        <activity android:name=".Activity.IntroSetting.IntroSettingFourActivity"></activity>
+        <activity android:name=".Activity.IntroSetting.IntroSettingThreeActivity"></activity>
+        <activity android:name=".Activity.IntroSetting.IntroSettingTwoActivity" />
         <activity android:name=".Activity.IntroSetting.IntroSettingActivity" />
         <activity android:name=".Activity.ProfileSettingActivity" />
-        <activity android:name=".Activity.DashboardActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".Activity.DashboardActivity">
+
         </activity>
         <activity android:name=".Activity.GoogleLoginActivity" />
         <activity android:name=".Activity.FacebookLoginActivity" />
@@ -35,7 +29,10 @@
         <activity android:name=".Activity.RegistrationActivity" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.SplashScreenActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Activity.IntroScreenActivity" />

@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Search best location for you" />
+            android:text="Enter best location for you" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -53,7 +53,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editText_address"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginLeft="25dp"
@@ -61,7 +61,9 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/custom_button_intro"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="ex Kuala Lumpur"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp" />
 
         <Button
             android:id="@+id/button_next"

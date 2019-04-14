@@ -17,7 +17,7 @@ public class IntroSettingTwoActivity extends AppCompatActivity {
 
     TextView textView_price_max,textView_price_min;
     MultiSlider multiSlider;
-    String token;
+    String token,postalCode,min="",max;
     Button button_next,button_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class IntroSettingTwoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_intro_setting_two);
 
         token = getIntent().getStringExtra("token");
+        postalCode = getIntent().getStringExtra("postalCode");
 
         multiSlider = findViewById(R.id.range_slider5);
         textView_price_max = findViewById(R.id.textView_price_max);
@@ -55,8 +56,10 @@ public class IntroSettingTwoActivity extends AppCompatActivity {
             {
                 if (thumbIndex == 0) {
                     textView_price_min.setText("RM "+String.valueOf(value));
+                    min = String.valueOf(value);
                 } else {
                     textView_price_max.setText("RM "+String.valueOf(value));
+                    max = String.valueOf(value);
                 }
             }
         });
@@ -67,6 +70,15 @@ public class IntroSettingTwoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(), IntroSettingThreeActivity.class);
                 next.putExtra("token",token);
+                next.putExtra("postalCode",postalCode);
+
+                if(min.equals("")){
+                    next.putExtra("min","0");
+                }else{
+                    next.putExtra("min",min);
+                }
+
+                next.putExtra("max",max);
                 startActivity(next);
             }
         });
