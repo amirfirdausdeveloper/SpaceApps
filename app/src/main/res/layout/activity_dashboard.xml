@@ -28,7 +28,7 @@
                 app:civ_border_color="@color/white" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textView_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -184,6 +184,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_logout"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="15dp"

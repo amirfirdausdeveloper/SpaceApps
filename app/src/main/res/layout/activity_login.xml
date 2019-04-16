@@ -56,7 +56,7 @@
                         android:textColor="@color/colorGraySikit" />
 
                     <TextView
-                        android:id="@+id/textView_createAcc"
+                        android:id="@+id/textView_createAccsa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Create your account"

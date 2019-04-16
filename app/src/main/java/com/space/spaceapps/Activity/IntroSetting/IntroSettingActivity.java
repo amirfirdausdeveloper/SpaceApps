@@ -49,7 +49,8 @@ public class IntroSettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_setting);
-
+        token = getIntent().getStringExtra("token");
+        Log.d("Token",token);
         // TO CHECK IF NOT FIRST TIME WILL GO TO SETTING SCREEN
         preferenceManager = new PreferenceManagerSplashScreenLogin(this);
         if (!preferenceManager.isFirstTimeLaunching()) {
@@ -58,7 +59,7 @@ public class IntroSettingActivity extends AppCompatActivity {
             Log.d("masuk","masuk");
         }
 
-        token = getIntent().getStringExtra("token");
+
         button_next = findViewById(R.id.button_next);
         editText_address = findViewById(R.id.editText_address);
 

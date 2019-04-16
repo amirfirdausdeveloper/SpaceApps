@@ -34,7 +34,7 @@ import static com.android.volley.Request.Method.POST;
 public class LoginActivity extends AppCompatActivity {
 
     private static long back_pressed;
-    TextView textView_createAcc;
+    TextView textView_createAccsa;
     Button button_login;
     TextInputEditText et_username,et_password;
     StandardProgressDialog standardProgressDialog;
@@ -45,12 +45,12 @@ public class LoginActivity extends AppCompatActivity {
 
         standardProgressDialog =  new StandardProgressDialog(this.getWindow().getContext());
 
-        textView_createAcc = findViewById(R.id.textView_createAcc);
+        textView_createAccsa = findViewById(R.id.textView_createAccsa);
         button_login = findViewById(R.id.button_login);
         et_username = findViewById(R.id.et_username);
         et_password = findViewById(R.id.ey_password);
 
-        textView_createAcc.setOnClickListener(new View.OnClickListener() {
+        textView_createAccsa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(),RegistrationActivity.class);

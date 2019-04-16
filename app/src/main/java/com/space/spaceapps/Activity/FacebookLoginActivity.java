@@ -19,6 +19,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
+import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.space.spaceapps.MainActivity;
@@ -72,6 +73,11 @@ public class FacebookLoginActivity extends AppCompatActivity {
         }
 
         loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
+        loginButton.setLoginBehavior(LoginBehavior.NATIVE_WITH_FALLBACK);
+        loginButton.setLoginBehavior(LoginBehavior.NATIVE_ONLY);
+        loginButton.setLoginBehavior(LoginBehavior.WEB_ONLY);
+
+
         callbackManager = CallbackManager.Factory.create();
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -82,6 +88,7 @@ public class FacebookLoginActivity extends AppCompatActivity {
                 //loginResult.getRecentlyDeniedPermissions()
                 //loginResult.getRecentlyGrantedPermissions()
                 boolean loggedIn = AccessToken.getCurrentAccessToken() == null;
+                Log.d("lol", String.valueOf(loggedIn));
                 getUserProfile(AccessToken.getCurrentAccessToken());
                 Log.d("API123", loggedIn + " ??");
 
